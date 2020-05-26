@@ -1,0 +1,7 @@
+# !/bin/bash
+
+export XENVIRONMENT="$HOME/.Xresources"
+
+[ -f ~/.Xresources ] && xrdb -merge ~/.Xresources
+
+exec i3

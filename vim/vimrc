@@ -1,0 +1,44 @@
+set viminfo="NONE" " disable writing to .viminfo
+
+set nu " line numbers
+set expandtab " spaces instead of tabs
+set smarttab
+
+set shiftwidth=4
+set tabstop=4
+
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
+
+set ai " AutoIndent
+set si " SmartIndent
+set wrap " Wrap lines
+
+set lbr " Linebreak on 500 chars
+set tw=500
+set history=500
+set laststatus=2
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+        autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+call plug#begin('~/.vim/plugged')
+Plug 'junegunn/seoul256.vim'
+call plug#end()
+
+" Remove trailing whitespace on save
+fun! CleanExtraSpaces()
+    let save_cursor = getpos(".")
+    let old_query = getreg('/')
+    silent! %s/\s\+$//e
+    call setpos('.', save_cursor)
+    call setreg('/', old_query)
+endfun
+
+if has("autocmd")
+    autocmd BufWritePre *.txt,*.js,* :call CleanExtraSpaces()
+endif
+
+colo seoul256
