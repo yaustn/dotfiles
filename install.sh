@@ -15,4 +15,4 @@ mkdir ~/.config -p
 ./i3status/symlink.sh
 ./vim/symlink.sh
 ./xresources/symlink.sh
-./xsettingsd/symlink.sh
+

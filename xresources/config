@@ -67,6 +67,10 @@ Xft.rgba: rgb
 URxvt*letterSpace:		0
 URxvt.lineSpace:		0
 
+! change font size
+URxvt.keysym.C-Down resize-font:smaller
+URxvt.keysym.C-Up   resize-font:bigger
+
 ! general settings
 URxvt*saveline:			15000
 URxvt*termName:			rxvt-256color
