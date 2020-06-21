@@ -67,10 +67,6 @@ Xft.rgba: rgb
 URxvt*letterSpace:		0
 URxvt.lineSpace:		0
 
-! change font size
-URxvt.keysym.C-Down resize-font:smaller
-URxvt.keysym.C-Up   resize-font:bigger
-
 ! general settings
 URxvt*saveline:			15000
 URxvt*termName:			rxvt-256color
@@ -86,7 +82,10 @@ URxvt*externalBorder:	0
 URxvt.geometry:			84x22
 
 ! perl extensions
-URxvt.perl-ext-common:	default,clipboard,url-select,keyboard-select
+URxvt.perl-ext-common:	default,clipboard,matcher,keyboard-select
+
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
 
 ! macros for clipboard and selection
 URxvt.copyCommand:		xclip -i -selection clipboard
@@ -97,9 +96,11 @@ URxvt.keysym.M-C-v:		perl:clipboard:paste_escaped
 URxvt.keysym.M-Escape:	perl:keyboard-select:activate
 URxvt.keysym.M-s:		perl:keyboard-select:search
 URxvt.keysym.M-u:		perl:url-select:select_next
-URxvt.urlLauncher:		firefox
 URxvt.underlineURLs:	true
-URxvt.urlButton:		1
+
+! change font size
+URxvt.keysym.M-Down resize-font:smaller
+URxvt.keysym.M-Up   resize-font:bigger
 
 ! scroll one line
 URxvt.keysym.Shift-Up:		command:\033]720;1\007
