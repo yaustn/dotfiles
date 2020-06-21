@@ -1,0 +1,62 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+export ZSH="/home/yaustn/.oh-my-zsh"
+
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+plugins=(git)
+
+source $ZSH/oh-my-zsh.sh
+
+# start ssh-agent
+eval "$(ssh-agent -s)"
+if [ -f ~/.ssh/id_rsa ]; then
+    ssh-add -k ~/.ssh/id_rsa
+else
+    ssh-keygen -t rsa -b 4096 -C "yaustn@pm.me"
+    ssh-add -k ~/.ssh/id_rsa
+fi
+
+# User configuration
+
+export PROJECTS_DIR="$HOME/projects"
+export DOTFILES_DIR="$PROJECTS_DIR/dotfiles"
+export PATH=$PATH:$HOME/bin
+
+# Golang
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+
+# Preferred editor for local and remote sessions
+export EDITOR='nvim'
+
+# For a full list of active aliases, run `alias`.
+#source $DOTFILES_DIR/zsh/aliases
+

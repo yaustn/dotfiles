@@ -1,22 +1,35 @@
 set viminfo="NONE" " disable writing to .viminfo
+set encoding=utf-8
 
-set nu " line numbers
+set nu        " enable line numbers
 set expandtab " spaces instead of tabs
 set smarttab
+set ai        " set autoindent
+set si        " set smartindent
+set wrap      " wrap lines
 
 set shiftwidth=4
 set tabstop=4
 
-autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
-
-set ai " AutoIndent
-set si " SmartIndent
-set wrap " Wrap lines
-
 set lbr " Linebreak on 500 chars
 set tw=500
 set history=500
-set laststatus=2
+
+set title     " set window title
+set titleold=
+
+"==============
+" Key mappings
+"==============
+
+" indent with tab and shift-tab
+nmap <Tab> >>
+nmap <S-Tab> <<
+imap <S-Tab> <Esc><<i
+
+"==========
+" Vim-Plug
+"==========
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -24,11 +37,42 @@ if empty(glob('~/.vim/autoload/plug.vim'))
         autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" todo: add plugins for
+" you complete me for autocomplete
+" ctrl p for search
+
 call plug#begin('~/.vim/plugged')
 Plug 'junegunn/seoul256.vim'
+Plug 'preservim/nerdtree'
+Plug 'rust-lang/rust.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 call plug#end()
 
-" Remove trailing whitespace on save
+colo seoul256
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+
+map <C-t> :NERDTreeToggle<CR>
+
+"============================
+" FileType specific settings
+"============================
+
+" Ruby
+autocmd FileType ruby setlocal shiftwidth=2 softtabstop=2 expandtab
+
+" Python
+au FileType python setlocal expandtab shiftwidth=4 tabstop=4 smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class,with
+au BufRead *.py set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+au FileType python set foldmethod=indent foldlevel=99
+
+" Rust
+
+"===========
+" Functions
+"===========
+
 fun! CleanExtraSpaces()
     let save_cursor = getpos(".")
     let old_query = getreg('/')
@@ -37,8 +81,33 @@ fun! CleanExtraSpaces()
     call setreg('/', old_query)
 endfun
 
+fun! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+fun! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+" Clean trailing whitespace on save
 if has("autocmd")
-    autocmd BufWritePre *.txt,*.js,* :call CleanExtraSpaces()
+    autocmd BufWritePre * :call CleanExtraSpaces()
 endif
 
-colo seoul256
+" Set Statusline
+set ls=2
+set statusline=
+set statusline+=%#PmenuSel#
+set statusline+=%{StatuslineGit()}
+set statusline+=%#LineNr#
+set statusline+=\ %f
+set statusline+=%m\
+set statusline+=%=
+set statusline+=%#CursorColumn#
+set statusline+=\ %y
+set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+set statusline+=\[%{&fileformat}\]
+set statusline+=\ %p%%
+set statusline+=\ %l:%c
+set statusline+=\
