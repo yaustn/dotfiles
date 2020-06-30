@@ -82,7 +82,7 @@ URxvt*externalBorder:	0
 URxvt.geometry:			84x22
 
 ! perl extensions
-URxvt.perl-ext-common:	default,clipboard,matcher,keyboard-select
+URxvt.perl-ext-common:	default,clipboard,matcher,keyboard-select,resize-font
 
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
@@ -99,8 +99,9 @@ URxvt.keysym.M-u:		perl:url-select:select_next
 URxvt.underlineURLs:	true
 
 ! change font size
-URxvt.keysym.M-Down resize-font:smaller
-URxvt.keysym.M-Up   resize-font:bigger
+URxvt.keysym.C-minus: resize-font:smaller
+URxvt.keysym.C-plus:  resize-font:bigger
+URxvt.keysym.C-equal: resize-font:reset
 
 ! scroll one line
 URxvt.keysym.Shift-Up:		command:\033]720;1\007
