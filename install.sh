@@ -23,5 +23,6 @@ echo ""
 # Install applications
 echo "Installing applications..."
 . $DOTFILES_DIR/todo/symlink.sh
+. $DOTFILES_DIR/z/symlink.sh
 echo ""
 
