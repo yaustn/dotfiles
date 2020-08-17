@@ -1,7 +1,7 @@
 #!/bin/bash
 
-export SRC_DIR="$HOME/src"
-export DOTFILES_DIR="$SRC_DIR/dotfiles"
+export PROJECTS_DIR="$HOME/projects"
+export DOTFILES_DIR="$PROJECTS_DIR/dotfiles"
 export PATH=$PATH:$HOME/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
@@ -69,7 +69,7 @@ if [ -f ~/.sudo_as_admin_successful ]; then
   rm ~/.sudo_as_admin_successful
 fi
 
-. /usr/bin/z
+. $HOME/bin/z
 
 cd ~
 cal -A 2

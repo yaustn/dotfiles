@@ -8,10 +8,10 @@
 #   1. install-programs.sh
 
 # Setup directory structure
-[ -f ~/src/dotfiles/scripts/dir.sh ] && . ~/src/dotfiles/scripts/dir.sh
+[ -f ~/projects/dotfiles/scripts/dir.sh ] && . ~/projects/dotfiles/scripts/dir.sh
 
 # Create symlinks
-[ -f ~/src/dotfiles/symlink.sh ] && . ~/src/dotfiles/symlink.sh
+[ -f ~/projects/dotfiles/symlink.sh ] && . ~/projects/dotfiles/symlink.sh
 
 # Install vimplug
 [ ! -f ~/.vim/autoload/plug.vim ] && curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim

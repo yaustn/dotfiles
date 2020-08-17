@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # Export environment variables we need
-export SRC_DIR="$HOME/src"
-export DOTFILES_DIR="$SRC_DIR/dotfiles"
+export PROJECTS_DIR="$HOME/projects"
+export DOTFILES_DIR="$PROJECTS_DIR/dotfiles"
 
 mkdir $HOME/.config -p
 mkdir $HOME/.bash_completion.d -p

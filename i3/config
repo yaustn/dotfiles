@@ -6,7 +6,7 @@ font pango:GohuFont 8
 # autostart
 exec --no-startup-id compton -b --config ~/.config/compton/config
 exec --no-startup-id xsettingsd &
-exec --no-startup-id hsetroot -center /home/yaustn/src/dotfiles/wallpapers/wallpaper-03.png
+exec --no-startup-id hsetroot -center /home/yaustn/projects/dotfiles/wallpapers/wallpaper-03.png
 
 ###################
 ### Keybindings ###
@@ -62,9 +62,9 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen
 
 # change container layout (stacked, tabbed, toggle split)
-bindsym $mod+s layout stacking
-bindsym $mod+w layout tabbed
-bindsym $mod+e layout toggle split
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -111,7 +111,7 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 exec --no-startup-id nm-applet
 exec firefox
-exec uvxrt
+exec urxvt
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

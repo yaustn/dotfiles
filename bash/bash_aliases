@@ -7,7 +7,7 @@ alias ls2='exa -laT --level=2 --group-directories-first'
 alias grep='grep --color=auto'
 
 # Aliases for navigation
-alias cddotfiles='cd ~/src/dotfiles'
+alias cddotfiles='cd ~/projects/dotfiles'
 #alias cddesktop='cd /mnt/c/Users/anooi/Desktop'
 #alias cddocuments='cd /mnt/c/Users/anooi/Documents'
 #alias cddownloads='cd /mnt/c/Users/anooi/Downloads'
