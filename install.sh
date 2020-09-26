@@ -10,7 +10,7 @@ mkdir $HOME/bin -p
 
 # Setup symlinks
 echo "Setting up symlinks..."
-. $DOTFILES_DIR/bash/symlink.sh
+. $DOTFILES_DIR/zsh/symlink.sh
 . $DOTFILES_DIR/fonts/symlink.sh
 . $DOTFILES_DIR/compton/symlink.sh
 . $DOTFILES_DIR/git/symlink.sh
