@@ -4,6 +4,7 @@ alias suspend='sudo pm-suspend'
 alias la='exa -laT --level=1 --group-directories-first'
 alias ls='exa -lT --level=1 --group-directories-first'
 alias ls2='exa -laT --level=2 --group-directories-first'
+alias tree='exa -lT --level=2 --group-directories-first'
 alias grep='grep --color=auto'
 
 # Aliases for navigation
