@@ -9,9 +9,12 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugins')
-Plug 'preservim/nerdtree'
 
-":colorscheme <C-d>
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+" See all colorschemes with :colorscheme <C-d>
 "Plug 'morhetz/gruvbox'
 Plug 'junegunn/seoul256.vim'
 
@@ -22,6 +25,10 @@ call plug#end()
 " ===========
 inoremap ;; <Esc>
 nmap <C-n> :NERDTreeToggle<CR>
+
+nmap <Tab> >>
+nmap <S-Tab> <<
+imap <S-Tab> <Esc><<i
 
 
 " ===========

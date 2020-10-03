@@ -38,14 +38,17 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " todo: add plugins for
-" you complete me for autocomplete
 " ctrl p for search
 
 call plug#begin('~/.vim/plugged')
+
 Plug 'junegunn/seoul256.vim'
+
 Plug 'preservim/nerdtree'
-Plug 'rust-lang/rust.vim'
+
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
 call plug#end()
 
 colo seoul256

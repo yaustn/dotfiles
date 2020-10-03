@@ -14,8 +14,8 @@ alias cddotfiles='cd $HOME/projects/dotfiles'
 alias gl='git log --graph --decorate --abbrev-commit'
 alias gs='git status --show-stash'
 
-alias vim='nvim'
-alias vi='nvim'
+#alias vim='nvim'
+#alias vi='nvim'
 
 # Aliases for top
 alias top="htop"

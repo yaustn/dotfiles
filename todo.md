@@ -1,0 +1,5 @@
+- Set installation to set zsh default
+- Remove z
+- Update i3status bar
+- Update fonts in urxvt
+- Switch from urxvt?
