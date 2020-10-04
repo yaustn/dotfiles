@@ -33,3 +33,5 @@
 	b = branch
 	cm = commit -m
 	ca = commit --amend
+[pager]
+	branch = false
