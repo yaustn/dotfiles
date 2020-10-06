@@ -7,11 +7,13 @@ sudo apt update && sudo apt upgrade
 sudo apt install -y zsh
 sudo apt install -y git
 sudo apt install -y neovim
-sudo apt install -y vlc
+#sudo apt install -y vlc
 
 # Password manager
 #sudo apt install -y keepassxc
 sudo apt install -y kpcli
+
+# check out install.sh script in $DOTFILES_DIR/apps
 
 echo "Done.\n"
 

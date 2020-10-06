@@ -19,7 +19,6 @@ mkdir -p $HOME/.config
 mkdir -p $HOME/bin
 mkdir -p $HOME/tmp
 mkdir -p $HOME/downloads
-mkdir -p $HOME/public
 mkdir -p $HOME/go
 echo "Done.\n"
 
@@ -46,5 +45,6 @@ echo "Setting up symlinks..."
 #. $DOTFILES_DIR/fonts/symlink.sh
 . $DOTFILES_DIR/git/symlink.sh
 . $DOTFILES_DIR/zsh/symlink.sh
+. $DOTFILES_DIR/nvim/symlink.sh
 echo "Done.\n"
 
