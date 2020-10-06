@@ -20,11 +20,12 @@ mkdir -p $HOME/bin
 mkdir -p $HOME/tmp
 mkdir -p $HOME/downloads
 mkdir -p $HOME/public
+mkdir -p $HOME/go
 echo "Done.\n"
 
 # Install apps and tools
 echo "Installing applications..."
-
+. $DOTFILES_DIR/scripts/install-applications.sh
 
 #if ! command -v COMMAND &> /dev/null
 #then
@@ -44,5 +45,6 @@ echo "Done.\n"
 echo "Setting up symlinks..."
 #. $DOTFILES_DIR/fonts/symlink.sh
 . $DOTFILES_DIR/git/symlink.sh
+. $DOTFILES_DIR/zsh/symlink.sh
 echo "Done.\n"
 

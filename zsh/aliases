@@ -5,22 +5,16 @@ alias shutdown='sudo shutdown now -h'
 alias la='exa -laT --level=1 --group-directories-first'
 alias ls='exa -lT --level=1 --group-directories-first'
 alias l2='exa -laT --level=2 --group-directories-first'
-alias grep='grep --color=auto'
-
-# Aliases for navigation
-alias cddotfiles='cd $HOME/projects/dotfiles'
-
-# Aliases for git
-alias gl='git log --graph --decorate --abbrev-commit'
-alias gs='git status --show-stash'
 
 alias vim='nvim'
 alias vi='nvim'
 
-# Aliases for top
-alias top="htop"
-alias du="ncdu"
+alias gl='git log --graph --decorate --abbrev-commit'
+alias gs='git status --show-stash'
 
 # Aliases for firefox
 alias ff='nohup firefox &>/dev/null &'
+
+# Aliase directories
+alias cddotfiles='cd $HOME/projects/dotfiles'
 
