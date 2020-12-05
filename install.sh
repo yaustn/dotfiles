@@ -2,6 +2,7 @@
 
 echo "Setting environment variables... and directories..."
 export PROJECTS_DIR="$HOME/projects"
+export CODE_DIR="$HOME/code"
 export DOTFILES_DIR="$PROJECTS_DIR/dotfiles"
 echo "Done.\n"
 
@@ -18,15 +19,17 @@ rm -rf $HOME/Videos
 mkdir -p $HOME/.config
 mkdir -p $HOME/bin
 mkdir -p $HOME/tmp
-mkdir -p $HOME/downloads
+mkdir -p $HOME/Downloads
+mkdir -p $HOME/projects
 mkdir -p $HOME/go
 echo "Done.\n"
 
 # Install apps and tools
 echo "Installing applications..."
 . $DOTFILES_DIR/scripts/install-applications.sh
+. $DOTFILES_DIR/zsh/install-oh-my-zsh.sh
 
-#if ! command -v COMMAND &> /dev/null
+#if ! go -v COMMAND &> /dev/null
 #then
 #    wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz -P $HOME/tmp/
 #    tar -C /usr/local -xzf $HOME/tmp/go1.15.2.linux-amd64.tar.gz

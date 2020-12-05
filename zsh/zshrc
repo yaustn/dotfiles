@@ -53,9 +53,22 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export GOPATH=$HOME/go
 
+# Python
+export PATH=$PATH:$HOME/.local/bin
+
 # Preferred editor for local and remote sessions
 export EDITOR='nvim'
 
 # For a full list of active aliases, run `alias`.
 source $DOTFILES_DIR/zsh/aliases
 
+# Enable z auto-completion
+source $DOTFILES_DIR/zsh/zsh-z.plugin.zsh
+autoload -U compinit && compinit
+
+zstyle ':completion:*' menu select
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="/home/yaustn/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
