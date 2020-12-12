@@ -1,0 +1,17 @@
+{
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.colorTheme": "Monokai",
+    "workbench.sideBar.location": "left",
+    "workbench.activityBar.visible": false,
+    "window.zoomLevel": 2,
+    "editor.renderWhitespace": "none",
+    "breadcrumbs.enabled": false,
+    "vim.handleKeys": {
+      "<C-t>": false,
+      "<C-w>": false,
+      "<C-c>": false,
+      "<C-v>": false,
+      "<C-x>": false,
+      "<C-d>": false,
+    }
+}
