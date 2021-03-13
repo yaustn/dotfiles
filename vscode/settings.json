@@ -3,7 +3,7 @@
     "workbench.colorTheme": "Monokai",
     "workbench.sideBar.location": "left",
     "workbench.activityBar.visible": false,
-    "window.zoomLevel": 2,
+    "window.zoomLevel": 1,
     "editor.renderWhitespace": "none",
     "breadcrumbs.enabled": false,
     "vim.handleKeys": {

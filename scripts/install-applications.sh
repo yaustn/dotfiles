@@ -2,6 +2,8 @@
 
 echo "Downloading and installing applications..."
 
+sudo add-apt-repository ppa:mozillacorp/mozillavpn
+
 sudo apt update && sudo apt upgrade
 
 sudo apt install -y zsh
@@ -21,7 +23,7 @@ sudo apt install -y kpcli
 # Install python3.8
 sudo apt install -y python3.8
 sudo apt install -y python3-pip
-sudo apt install -y virtualenv 
+sudo apt install -y virtualenv
 
 # Install nodejs
 # nvm?
@@ -48,6 +50,18 @@ fi
 
 sudo apt install -y build-essential
 sudo apt install -y libreoffice
+
+# MongoDB
+# wget -qO - https://www.mongodb.org/static/pgp/server-4.4.asc | sudo apt-key add -
+# echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/4.4 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-4.4.list
+# sudo apt-get update
+# sudo apt-get install -y mongo-org
+# sudo systemctl start mongod
+
+# sudo apt-get install mongo-compass
+# sudo apt-get install postman
+
+sudo apt-get install mozillavpn
 
 echo "Done.\n"
 
