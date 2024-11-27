@@ -1,7 +1,10 @@
 {
   "workbench.sideBar.location": "right",
-  "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "Monokai Dimmed",
+  "workbench.iconTheme": "vs-nomo-dark",
+  "workbench.colorTheme": "Default Dark Modern",
+
+  // VIM SETTINGS
+  "vim.useSystemClipboard": true,
   "vim.handleKeys": {
     "<C-t>": false,
     "<C-w>": false,
@@ -10,5 +13,6 @@
     "<C-x>": false,
     "<C-d>": false
   },
+
   "vsicons.dontShowNewVersionMessage": true
 }

@@ -1,7 +1,20 @@
-// Place your key bindings in this file to override the defaults
 [
     {
-        "key": "ctrl+t", 
+        "key": "ctrl+alt+h",
+        "command": "workbench.action.navigateBack",
+        "when": "canNavigateBack"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.navigateForward",
+        "when": "canNavigateForward"
+    }
+    {
+        "key": "ctrl+2", 
         "command": "workbench.action.toggleSidebarVisibility", 
+    },
+    {
+        "key": "ctrl+1", 
+        "command": "workbench.action.terminal.toggleTerminal", 
     }
 ]
