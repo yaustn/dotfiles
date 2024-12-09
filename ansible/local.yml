@@ -7,7 +7,7 @@
     dotfiles_repo: "https://github.com/yaustn/dotfiles.git"
     dotfiles_dest: "{{ ansible_env.HOME }}/.dotfiles_test"
     ssh_dir: "{{ ansible_env.HOME }}/.ssh_test"
-    encrypted_ssh_key_file: "{{ dotfiles_dest }}/ssh/id_ed25519"
+    encrypted_ssh_key_file: "{{ dotfiles_dest }}/ssh/encrypted_ssh_key"
 
   tasks:
     - name: Clone/Pull dotfiles repository

@@ -1,5 +1,8 @@
 #!/bin/bash
 
+brew install ansible
+sudo apt install ansible
+
 echo "Setting environment variables... and directories..."
 export PROJECTS_DIR="$HOME/projects"
 #export CODE_DIR="$HOME/code"
