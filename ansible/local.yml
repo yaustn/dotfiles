@@ -16,8 +16,10 @@
         dest: "{{ dotfiles_dest }}"
         update: yes
         version: master 
+      ignore_errors: yes
       tags:
         - dotfiles
+
 
     - name: Ensure .ssh directory exists
       file:
