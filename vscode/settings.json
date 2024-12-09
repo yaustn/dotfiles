@@ -2,17 +2,27 @@
   "workbench.sideBar.location": "right",
   "workbench.iconTheme": "vs-nomo-dark",
   "workbench.colorTheme": "Default Dark Modern",
-
   // VIM SETTINGS
   "vim.useSystemClipboard": true,
   "vim.handleKeys": {
-    "<C-t>": false,
     "<C-w>": false,
-    "<C-c>": false,
+    "<C-a>": false,
     "<C-v>": false,
+    "<C-c>": false,
     "<C-x>": false,
-    "<C-d>": false
+    "<C-z>": false,
+    "<C-d>": false,
+    "<C-p>": false
   },
-
+  // GOLANG SETTINGS
+  "editor.formatOnSave": true,
+  "go.formatTool": "goimports",
+  "[go]": {
+    "editor.defaultFormatter": "golang.go",
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+      "source.organizeImports": "explicit"
+    }
+  },
   "vsicons.dontShowNewVersionMessage": true
 }
