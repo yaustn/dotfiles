@@ -43,21 +43,10 @@
         dest: "{{ ssh_dir }}/{{ item.filename }}"
         mode: "{{ item.mode | default('0600') }}"
       loop: "{{ ssh_keys.files }}"
-      #no_log: true
+      no_log: true
       tags:
         - ssh
         - dotfiles
-
-    - name: Generate public key from private key
-      command: ssh-keygen -y -f {{ ssh_dir }}/id_ed25519
-      register: pubkey_content
-      changed_when: false  
-
-    - name: Write public key to file
-      copy:
-        content: "{{ pubkey_content.stdout }} {{ ssh_key.comment | default('') }}"
-        dest: "{{ ssh_dir }}/id_ed25519.pub"
-        mode: '0644'
 
     # - name: Create symlinks for dotfiles
     #   file:
