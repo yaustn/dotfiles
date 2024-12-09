@@ -1,7 +1,8 @@
-ansible-playbook local.yml --ask-vault-pass
 # yaustn dotfiles
 
-Customization files for Ubuntu 20.04 and Gnome 3.36
+```
+ansible-playbook -t dotfiles ansible/setup.yml --ask-become-pass --ask-vault-pass
+```
 
 ## Installation
 Run the `install.sh` script in the root directory to bootstrap all dotfiles and settings.

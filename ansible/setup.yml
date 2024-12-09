@@ -6,8 +6,8 @@
   vars:
     dotfiles_repo: "https://github.com/yaustn/dotfiles.git"
     dotfiles_dest: "{{ ansible_env.HOME }}/github.com/dotfiles"
-    ssh_dir: "{{ ansible_env.HOME }}/.ssh_test"
-    encrypted_ssh_key_file: "{{ dotfiles_dest }}/ansible/files.yml"
+    ssh_dir: "{{ ansible_env.HOME }}/.ssh"
+    ssh_files: "{{ dotfiles_dest }}/ansible/ssh_files.yml"
 
   tasks:
     - name: Clone/Pull dotfiles repository
@@ -20,8 +20,8 @@
       tags:
         - dotfiles
 
-
     - name: Ensure .ssh directory exists
+      become_user: root
       file:
         path: "{{ ssh_dir }}"
         state: directory
@@ -49,6 +49,15 @@
       tags:
         - ssh
         - dotfiles
+
+    - name: Set authorized key took from file
+      authorized_key:
+        user: "{{ lookup('env', 'USER') }}"
+        state: present
+        key: "{{ ansible_env.HOME }}/.ssh/id_ed25119.pub"
+      tags:
+        - dotfiles
+        - ssh
 
     # - name: Create symlinks for dotfiles
     #   file:
