@@ -1,3 +1,4 @@
+ansible-playbook local.yml --ask-vault-pass
 # yaustn dotfiles
 
 Customization files for Ubuntu 20.04 and Gnome 3.36
@@ -21,3 +22,4 @@ sudo vim /etc/xdg/user-dirs.conf
 set `Enabled=false`
 
 You can also edit `$HOME/.config/user-dirs.dirs` and comment out any folders that are unnecessary or re-point them to the proper directories
+
