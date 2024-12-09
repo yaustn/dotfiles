@@ -1,4 +1,4 @@
 files:
   - filename: id_ed25519
-    content_file: "{{ playbook_dir }}..ssh/encrypted_id_ed25519"
+    content_file: "{{ ansible_env.HOME }}/github.com/dotfiles/ssh/encrypted_id_ed25519"
     mode: '0600'

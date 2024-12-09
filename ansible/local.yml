@@ -5,9 +5,9 @@
 
   vars:
     dotfiles_repo: "https://github.com/yaustn/dotfiles.git"
-    dotfiles_dest: "{{ ansible_env.HOME }}/.dotfiles_test"
+    dotfiles_dest: "{{ ansible_env.HOME }}/github.com/dotfiles"
     ssh_dir: "{{ ansible_env.HOME }}/.ssh_test"
-    encrypted_ssh_key_file: "{{ dotfiles_dest }}/ssh/encrypted_id_ed25519"
+    encrypted_ssh_key_file: "{{ dotfiles_dest }}/ansible/files.yml"
 
   tasks:
     - name: Clone/Pull dotfiles repository
@@ -32,18 +32,21 @@
       ansible.builtin.include_vars:
         file: "{{ encrypted_ssh_key_file }}"
         name: ssh_keys
-      # no_log: true  
+      no_log: true  
       tags:
         - ssh
         - dotfiles
 
     - name: Copy SSH keys
       copy:
-        content: "{{ item.content }}"
+        content: "{{ lookup('file', item.content_file) }}"
         dest: "{{ ssh_dir }}/{{ item.filename }}"
         mode: "{{ item.mode | default('0600') }}"
       loop: "{{ ssh_keys.files }}"
-      no_log: true
+      #no_log: true
+      tags:
+        - ssh
+        - dotfiles
 
     - name: Generate public key from private key
       command: ssh-keygen -y -f {{ ssh_dir }}/id_ed25519
