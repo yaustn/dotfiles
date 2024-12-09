@@ -32,7 +32,7 @@
       ansible.builtin.include_vars:
         file: "{{ encrypted_ssh_key_file }}"
         name: ssh_keys
-      no_log: true  
+      # no_log: true  
       tags:
         - ssh
         - dotfiles

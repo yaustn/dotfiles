@@ -1,0 +1,10 @@
+files:
+  - filename: id_ed25519
+    content: |
+      -----BEGIN OPENSSH PRIVATE KEY-----
+      your_private_key_content
+      -----END OPENSSH PRIVATE KEY-----
+    mode: '0600'
+  - filename: id_ed25519.pub
+    content: "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIL0ObCZBk8z4K9g4ZMUDcw0vT0tXb8zUIgrFMobVFTjZ ahyoo13@gmail.com"
+    mode: '0644'
