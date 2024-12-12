@@ -1,6 +1,6 @@
 [user]
 	email = yaustn@pm.me
-	name = Yoo, Austin
+	name = Austin Yoo
    	username = yaustn
 [core]
 	editor = vim
@@ -35,3 +35,5 @@
 	ca = commit --amend
 [pager]
 	branch = false
+[init]
+	defaultBranch = master

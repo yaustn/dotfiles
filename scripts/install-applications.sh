@@ -2,10 +2,6 @@
 
 echo "Downloading and installing applications..."
 
-sudo add-apt-repository ppa:mozillacorp/mozillavpn
-
-sudo apt update && sudo apt upgrade
-
 sudo apt install -y zsh
 sudo apt install -y git
 sudo apt install -y neovim

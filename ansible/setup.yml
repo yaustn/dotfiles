@@ -34,7 +34,7 @@
       ansible.builtin.include_vars:
         file: "{{ ssh_files }}"
         name: ssh_keys
-      #no_log: true  
+      no_log: true  
       tags:
         - ssh
         - dotfiles
@@ -61,13 +61,20 @@
         - ssh
         - dotfiles
 
-    # - name: Create symlinks for dotfiles
-    #   file:
-    #     src: "{{ dotfiles_dest }}/{{ item }}"
-    #     dest: "{{ ansible_env.HOME }}/.{{ item }}"
-    #     state: link
-    #   loop:
-    #     - bashrc
-    #     - vimrc
-    #     - gitconfig
-        # Add more dotfiles as needed 
+    - name: Copy .gitconfig to home directory
+      copy:
+        src: "{{ dotfiles_dest }}/git/gitconfig"
+        dest: "{{ ansible_env.HOME }}/.gitconfig"
+        mode: '0644'
+      tags:
+        - git
+        - dotfiles
+    
+    - name: Copy .gitignore to home directory
+      copy:
+        src: "{{ dotfiles_dest }}/git/gitignore"
+        dest: "{{ ansible_env.HOME }}/.gitignore"
+        mode: '0644'
+      tags:
+        - git
+        - dotfiles
