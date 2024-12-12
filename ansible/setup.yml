@@ -61,20 +61,14 @@
         - ssh
         - dotfiles
 
-    - name: Copy .gitconfig to home directory
+    - name: Copy Git configuration files to home directory
       copy:
-        src: "{{ dotfiles_dest }}/git/gitconfig"
-        dest: "{{ ansible_env.HOME }}/.gitconfig"
+        src: "{{ dotfiles_dest }}/git/{{ item }}"
+        dest: "{{ ansible_env.HOME }}/.{{ item }}"
         mode: '0644'
-      tags:
-        - git
-        - dotfiles
-    
-    - name: Copy .gitignore to home directory
-      copy:
-        src: "{{ dotfiles_dest }}/git/gitignore"
-        dest: "{{ ansible_env.HOME }}/.gitignore"
-        mode: '0644'
+      loop:
+        - gitconfig
+        - gitignore
       tags:
         - git
         - dotfiles
