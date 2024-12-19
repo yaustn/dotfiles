@@ -50,6 +50,16 @@
     #     - ssh
     #     - dotfiles
 
+    - name: Copy SSH config file
+      copy:
+        src: "{{ dotfiles_dest }}/ssh/config"
+        dest: "{{ ssh_dir }}/config"
+        mode: '0600'
+      no_log: true
+      tags:
+        - ssh
+        - dotfiles
+
     - name: Set authorized ssh key from file
       authorized_key:
         user: "{{ lookup('env', 'USER') }}"

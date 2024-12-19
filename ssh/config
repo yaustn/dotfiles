@@ -15,4 +15,9 @@ Host chronos
         Hostname 192.168.1.8
         Port 22
         IdentityFile ~/.ssh/id_ed25519
-        
+
+Host thinkcentre
+        User ayoo
+        Hostname 192.168.1.5
+        Port 22
+        IdentityFile ~/.ssh/id_ed25519
