@@ -39,16 +39,16 @@
         - ssh
         - dotfiles
 
-    - name: Copy SSH keys
-      copy:
-        content: "{{ lookup('file', item.content_file) }}"
-        dest: "{{ ssh_dir }}/{{ item.filename }}"
-        mode: "{{ item.mode | default('0600') }}"
-      loop: "{{ ssh_keys.files }}"
-      no_log: true
-      tags:
-        - ssh
-        - dotfiles
+    # - name: Copy SSH keys
+    #   copy:
+    #     content: "{{ lookup('file', item.content_file) }}"
+    #     dest: "{{ ssh_dir }}/{{ item.filename }}"
+    #     mode: "{{ item.mode | default('0600') }}"
+    #   loop: "{{ ssh_keys.files }}"
+    #   no_log: true
+    #   tags:
+    #     - ssh
+    #     - dotfiles
 
     - name: Set authorized ssh key from file
       authorized_key:
