@@ -21,6 +21,7 @@ brew install docker-compose
 brew install eza
 brew install tmux
 brew install nvim
+brew install fzf
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
