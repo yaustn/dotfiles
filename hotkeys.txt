@@ -1,0 +1,17 @@
+CMD + C = Copy
+CMD + X = Cut
+CMD + V = Paste
+
+CMD + Space = Raycast
+
+// Windows Management
+Option + Space = Terminal
+Option + 1 = Chrome
+Option + 2 = Firefox
+Option + 3 = VS Code
+Option + 4 = ?
+
+// VS Code 
+Ctrl + 1 = Terminal
+Ctrl + 2 = Right Sidebar
+Ctrl + 3 = Left Sidebar

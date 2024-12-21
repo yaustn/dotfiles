@@ -26,21 +26,17 @@
     // TERMINAL
     {
         "key": "ctrl+1",
-        "command": "workbench.action.terminal.toggleTerminal",
+        "command": "workbench.action.terminal.toggleTerminal"
     },
     // SIDEBAR
     {
         "key": "ctrl+2",
-        "command": "workbench.action.toggleSidebarVisibility",
+        "command": "workbench.action.toggleSidebarVisibility"
     },
-    // AI CHAT
+    // GITHUB COPILOT
     {
         "key": "ctrl+3",
-        "command": "aichat.close-sidebar",
-        "when": "workbench.panel.aichat.view.visible"
+        "command": "workbench.panel.chat",
+        "when": "workbench.panel.chat.view.copilot.active"
     },
-    {
-        "key": "ctrl+3",
-        "command": "aichat.focuschatpaneaction",
-    }
 ]
