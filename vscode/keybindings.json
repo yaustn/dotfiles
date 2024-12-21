@@ -25,17 +25,26 @@
     },
     // TERMINAL
     {
-        "key": "ctrl+1",
+        "key": "ctrl+space",
         "command": "workbench.action.terminal.toggleTerminal"
     },
     // SIDEBAR
     {
-        "key": "ctrl+2",
+        "key": "ctrl+1",
         "command": "workbench.action.toggleSidebarVisibility"
     },
-    // GITHUB COPILOT
     {
         "key": "ctrl+3",
+        "command": "workbench.view.explorer",
+    },
+    {
+        "key": "ctrl+4",
+        "command": "workbench.view.extensions",
+    },
+    // differentiate ctrl 1 with file explorer and ctrl 3 code and ctrl 4 with extensions
+    // GITHUB COPILOT
+    {
+        "key": "ctrl+2",
         "command": "workbench.panel.chat",
         "when": "workbench.panel.chat.view.copilot.active"
     },

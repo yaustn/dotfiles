@@ -12,6 +12,7 @@ Option + 3 = VS Code
 Option + 4 = ?
 
 // VS Code 
-Ctrl + 1 = Terminal
-Ctrl + 2 = Right Sidebar
-Ctrl + 3 = Left Sidebar
+Ctrl + Space = Terminal
+Ctrl + 1 = File (Right) Sidebar
+Ctrl + 2 = AI (Left) Sidebar
+Ctrl + 3 = Extensions (Right) Sidebar
