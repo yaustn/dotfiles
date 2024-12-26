@@ -35,17 +35,15 @@
     },
     {
         "key": "ctrl+3",
-        "command": "workbench.view.explorer",
+        "command": "workbench.view.explorer"
     },
     {
         "key": "ctrl+4",
-        "command": "workbench.view.extensions",
+        "command": "workbench.view.extensions"
     },
-    // differentiate ctrl 1 with file explorer and ctrl 3 code and ctrl 4 with extensions
     // GITHUB COPILOT
     {
         "key": "ctrl+2",
-        "command": "workbench.panel.chat",
-        "when": "workbench.panel.chat.view.copilot.active"
+        "command": "workbench.panel.chat"
     },
 ]

@@ -17,13 +17,10 @@
   },
   // GOLANG SETTINGS
   "editor.formatOnSave": true,
-  "go.formatTool": "goimports",
-  "[go]": {
-    "editor.defaultFormatter": "golang.go",
-    "editor.formatOnSave": true,
-    "editor.codeActionsOnSave": {
-      "source.organizeImports": "explicit"
-    }
-  },
-  "vsicons.dontShowNewVersionMessage": true
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": false,
+    "markdown": false,
+    "scminput": false
+  }
 }

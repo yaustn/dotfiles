@@ -5,15 +5,15 @@
 
   vars:
     dotfiles_repo: "https://github.com/yaustn/dotfiles.git"
-    dotfiles_dest: "{{ ansible_env.HOME }}/github.com/dotfiles"
+    dotfiles_dir: "{{ ansible_env.HOME }}/github.com/dotfiles"
     ssh_dir: "{{ ansible_env.HOME }}/.ssh"
-    ssh_files: "{{ dotfiles_dest }}/ansible/ssh_files.yml"
+    ssh_files: "{{ dotfiles_dir }}/ansible/ssh_files.yml"
 
   tasks:
     - name: Clone/Pull dotfiles repository
       git:
         repo: "{{ dotfiles_repo }}"
-        dest: "{{ dotfiles_dest }}"
+        dest: "{{ dotfiles_dir }}"
         update: yes
         version: master 
       ignore_errors: yes
@@ -52,7 +52,7 @@
 
     - name: Copy SSH config file
       copy:
-        src: "{{ dotfiles_dest }}/ssh/config"
+        src: "{{ dotfiles_dir }}/ssh/config"
         dest: "{{ ssh_dir }}/config"
         mode: '0600'
       no_log: true
@@ -73,7 +73,7 @@
 
     - name: Copy Git configuration files to home directory
       copy:
-        src: "{{ dotfiles_dest }}/git/{{ item }}"
+        src: "{{ dotfiles_dir }}/git/{{ item }}"
         dest: "{{ ansible_env.HOME }}/.{{ item }}"
         mode: '0644'
       loop:
@@ -81,4 +81,16 @@
         - gitignore
       tags:
         - git
+        - dotfiles
+    
+    - name: Copy VSCode settings
+      copy:
+        src: "{{ item }}"
+        dest: "{{ ansible_env.HOME }}/Library/Application Support/Code/User/{{ item | basename }}"
+        mode: '0644'
+      loop: 
+        - "{{ dotfiles_dir }}/vscode/settings.json"
+        - "{{ dotfiles_dir }}/vscode/keybindings.json"
+      tags:
+        - vscode
         - dotfiles
