@@ -35,6 +35,7 @@ chflags nohidden ~/Library # show Library folder
 defaults write com.apple.finder AppleShowAllFiles YES # show hidden files
 defaults write com.apple.finder ShowPathbar -bool true # show path bar
 defaults write com.apple.finder ShowStatusBar -bool true # show status bar
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # allow hold key in vscode
 
 killall Finder;
 
@@ -43,12 +44,12 @@ ansible-playbook -t dotfiles ansible/setup.yml --ask-become-pass --ask-vault-pas
 # VSCODE
 copy settings.json --> /Users/ayoo/Library/Application\ Support/Code/User/settings.json
 copy keybindings.json --> /Users/ayoo/Library/Application\ Support/Code/User/keybindings.json
-
+# extensions
 be5invis.vscode-icontheme-nomo-dark
 golang.go
 vscodevim.vim
 ms-azuretools.vscode-docker
-
+ms-vscode.makefile-tools
 
 
 
