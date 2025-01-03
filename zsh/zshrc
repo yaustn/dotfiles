@@ -40,6 +40,7 @@ alias l2='eza -laT --level=2 --group-directories-first'
 alias gitl='git log --graph --decorate --abbrev-commit'
 alias gits="git status --show-stash"
 alias gita="git add ."
+alias gitp="git push"
 
 alias wgup='sudo wg-quick up wg0'
 alias wgdown='sudo wg-quick down wg0'

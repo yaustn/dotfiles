@@ -10,9 +10,12 @@ Option + 1 = Chrome
 Option + 2 = Firefox
 Option + 3 = VS Code
 Option + 4 = ?
+Option + 5 = IRC
+Option + 6 = bitwarden
 
 // VS Code 
-Ctrl + Space = Terminal
-Ctrl + 1 = File (Right) Sidebar
-Ctrl + 2 = AI (Left) Sidebar
-Ctrl + 3 = Extensions (Right) Sidebar
+Cmd + 1 = Terminal
+Cmd + 2 = File (Right) Sidebar
+Cmd + 3 = AI (Left) Sidebar
+Cmd + 4 = File (Right) Sidebar
+Cmd + 5 = Extensions (Right) Sidebar
