@@ -16,22 +16,17 @@
         "when": "editorHasDefinitionProvider && editorTextFocus"
     },
     {
+        "key": "cmd+alt+k",
+        "command": "editor.action.goToImplementation",
+        "when": "editorHasDefinitionProvider && !editorReadonly"
+    },
+    {
         "key": "cmd+shift+l",
         "command": "workbench.action.nextEditor"
     },
     {
         "key": "cmd+shift+h",
         "command": "workbench.action.previousEditor"
-    },
-    {
-        "key": "cmd+shift+click",
-        "command": "editor.action.goToImplementation",
-        "when": "editorHasDefinitionProvider && !editorReadonly"
-    },
-    {
-        "key": "cmd+alt+k",
-        "command": "editor.action.goToImplementation",
-        "when": "editorHasDefinitionProvider && !editorReadonly"
     },
     // TERMINAL
     {
