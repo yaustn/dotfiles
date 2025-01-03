@@ -1,5 +1,5 @@
 ---
-- name: Setup dotfiles and SSH keys
+- name: Setup dotfiles
   hosts: localhost
   become: no
 
@@ -93,4 +93,20 @@
         - "{{ dotfiles_dir }}/vscode/keybindings.json"
       tags:
         - vscode
+        - dotfiles
+
+# install oh my zsh
+# git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-completions ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-history-substring-search ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-history-substring-search
+    - name: Copy zshrc settings
+      copy:
+        src: "{{ item }}"
+        dest: "{{ ansible_env.HOME }}/.{{ item | basename }}"
+        mode: '0644'
+      loop: 
+        - "{{ dotfiles_dir }}/zsh/zshrc"
+      tags:
+        - zsh 
         - dotfiles

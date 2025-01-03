@@ -27,6 +27,7 @@ brew install pgcli
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# ZSHRC
 
 # General Settings
 defaults write com.apple.screencapture type jpg # take screenshots as jpg (usually smaller size) and not png
@@ -50,7 +51,6 @@ golang.go
 vscodevim.vim
 ms-azuretools.vscode-docker
 ms-vscode.makefile-tools
-
 
 
 
