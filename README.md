@@ -12,5 +12,5 @@ ansible-playbook -t dotfiles ansible/setup.yml --ask-become-pass --ask-vault-pas
 ```
 
 ```
-stow nvim
+stow -v -t ~ nvim
 ```
