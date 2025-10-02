@@ -10,3 +10,7 @@ cd dotfiles
 ./setup.sh
 ansible-playbook -t dotfiles ansible/setup.yml --ask-become-pass --ask-vault-pass
 ```
+
+```
+stow nvim
+```

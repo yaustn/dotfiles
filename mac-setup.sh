@@ -12,8 +12,10 @@ brew install iterm2
 brew install visual-studio-code
 brew install calibre
 brew install halloy
+brew install vlc
 
 # install cli tools
+brew install stow
 brew install git
 brew install wireguard-tools
 brew install ansible
