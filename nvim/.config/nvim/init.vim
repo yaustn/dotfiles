@@ -26,9 +26,10 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 endif
 
 call plug#begin('~/.config/nvim/plugins')
-
+":PlugInstall"
 "Plug 'morhetz/gruvbox'
-Plug 'junegunn/seoul256.vim'
+"Plug 'junegunn/seoul256.vim'
+Plug 'navarasu/onedark.nvim'
 
 "Plug 'preservim/nerdtree'
 "Plug 'preservim/nerdcommenter'
@@ -57,8 +58,10 @@ imap <S-Tab> <Esc><<i
 "
 " :colorscheme <C-d> shows installed schemes
 "
-let g:seoul256_background = 236 " 233 (darkest) ~ 239 (lightest)
-colo seoul256
+"let g:seoul256_background = 233 " 233 (darkest) ~ 239 (lightest)
+"colo seoul256
+let g:onedark_config = {'style': 'warm'} "{'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'},
+colorscheme onedark
 
 " =========
 " Functions
