@@ -8,9 +8,12 @@ git clone https://github.com/yaustn/dotfiles.git
 ```
 
 
-Starting to migrate my dotfiles over to using stow instead of ansible for setup:
+# Stow
+- use `--adopt` where necessary
 
 ```
 stow -v -t ~ nvim
-stow -v -t ~ zsh --adopt
+stow -v -t ~ zsh
+stow -v -t ~ git
+stow -v -t ~ cursor
 ```
