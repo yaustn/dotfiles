@@ -33,14 +33,13 @@ Plug 'navarasu/onedark.nvim'
 
 "Plug 'preservim/nerdcommenter'
 "Plug 'jiangmiao/auto-pairs'
-"
 
 Plug 'nvim-tree/nvim-web-devicons' "requires non-ascii Nerd Font
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'akinsho/bufferline.nvim'
 
 "Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-"Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
 " ===========
@@ -117,4 +116,15 @@ endfun
 if has("autocmd")
     autocmd BufWritePre * :call CleanExtraSpaces()
 endif
+
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_operators = 1
+let g:go_fmt_autosave = 1
+let g:go_fmt_command = "goimports"  " Auto-import packages
+
+" Auto show type info
+let g:go_auto_type_info = 1
 
