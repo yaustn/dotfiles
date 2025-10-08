@@ -36,4 +36,4 @@
 [pager]
 	branch = false
 [init]
-	defaultBranch = master
+	defaultBranch = main
