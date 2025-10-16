@@ -1,0 +1,105 @@
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
+
+call plug#begin('~/.config/nvim/plugins')
+"Plug 'morhetz/gruvbox'
+"Plug 'junegunn/seoul256.vim'
+Plug 'navarasu/onedark.nvim'
+
+"Plug 'preservim/nerdcommenter'
+"Plug 'jiangmiao/auto-pairs'
+
+Plug 'nvim-tree/nvim-web-devicons' "requires non-ascii Nerd Font
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'akinsho/bufferline.nvim'
+
+"Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+
+-- Plugin configuration using lazy.nvim
+return {
+  -- Colorscheme
+  {
+    "navarasu/onedark.nvim",
+    config = function()
+      local onedark = require("onedark")
+      onedark.setup({
+        style = "warm", -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
+      })
+      onedark.load()
+    end,
+  },
+
+  -- File explorer
+  {
+    "nvim-tree/nvim-tree.lua",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("nvim-tree").setup({
+        sort_by = "case_sensitive",
+        view = {
+          width = 30,
+        },
+        renderer = {
+          group_empty = true,
+        },
+        filters = {
+          dotfiles = false,
+        },
+      })
+    end,
+  },
+
+  -- Buffer line
+  {
+    "akinsho/bufferline.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("bufferline").setup({})
+    end,
+  },
+
+  -- Go development
+  {
+    "fatih/vim-go",
+    build = ":GoUpdateBinaries",
+  },
+}
+" ===========
+" ColorScheme
+" ===========
+"
+" :colorscheme <C-d> shows installed schemes
+"
+"let g:seoul256_background = 233 " 233 (darkest) ~ 239 (lightest)
+"colo seoul256
+let g:onedark_config = {'style': 'warm'} "{'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'},
+colorscheme onedark
+
+" =============
+" File Explorer
+" =============
+"
+lua << EOF
+
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = false,
+  },
+})
+EOF
+
+lua << EOF
+require("bufferline").setup{}
+EOF
+
