@@ -18,4 +18,9 @@ return {
       require("mini.pairs").setup()
     end,
   },
+  {
+    "folke/ts-comments.nvim",
+    event = "VeryLazy",
+    opts = {},
+  },
 }
