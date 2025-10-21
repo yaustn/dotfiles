@@ -1,15 +1,15 @@
 return {
   "nvim-telescope/telescope.nvim",
   dependencies = { "nvim-lua/plenary.nvim" },
+  lazy = false,
   opts = {
     defaults = {
-      layout_strategy = "vertical",
+      layout_strategy = "horizontal",
       layout_config = {
-        vertical = {
-          width = 0.8,
-          height = 0.8,
-          preview_height = 0.3,
-          mirror = true,
+        horizontal = {
+          width = 0.85,
+          height = 0.9,
+          preview_width = 0.6,
         },
       },
       mappings = {

@@ -5,9 +5,24 @@ vim.opt.timeoutlen = 500
 
 vim.keymap.set("i", ";;", "<Esc>", { desc = "Escape insert mode" })
 
-vim.keymap.set("n", "<leader>1", ":NvimTreeToggle<CR>", { desc = "Toggle nvim-tree" })
---vim.keymap.set("n", "<leader>1", ":NvimTreeFocus<CR>", { desc = "Toggle nvim-tree" })
---vim.keymap.set("n", "<leader>1", ":NvimTreeRefresh<CR>", { desc = "Toggle nvim-tree" })
+vim.keymap.set("n", "<leader>t", function()
+  local nvim_tree = require("nvim-tree.api")
+  local view = require("nvim-tree.view")
+  
+  if view.is_visible() then
+    -- If tree is visible, check if we're in it
+    if vim.bo.filetype == "NvimTree" then
+      -- We're in the tree, toggle it off
+      nvim_tree.tree.toggle()
+    else
+      -- Tree is open but we're not in it, focus it
+      nvim_tree.tree.focus()
+    end
+  else
+    -- Tree is closed, open it
+    nvim_tree.tree.toggle()
+  end
+end, { desc = "Toggle/Focus nvim-tree" })
 
 vim.keymap.set("n", "<Tab>", ">>", { desc = "Indent line right" })
 vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Indent line left" })

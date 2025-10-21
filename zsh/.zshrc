@@ -48,7 +48,7 @@ alias gitp="git push"
 alias wgup='sudo wg-quick up wg0'
 alias wgdown='sudo wg-quick down wg0'
 
-alias vim='nvim'
+alias vim="nvim"
 alias vi='nvim'
 alias vim-config='vim ~/.config/nvim/init.vim'
 export EDITOR='nvim'
