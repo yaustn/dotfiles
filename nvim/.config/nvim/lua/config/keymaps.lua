@@ -8,7 +8,7 @@ vim.keymap.set("i", ";;", "<Esc>", { desc = "Escape insert mode" })
 vim.keymap.set("n", "<leader>t", function()
   local nvim_tree = require("nvim-tree.api")
   local view = require("nvim-tree.view")
-  
+
   if view.is_visible() then
     -- If tree is visible, check if we're in it
     if vim.bo.filetype == "NvimTree" then
