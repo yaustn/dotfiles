@@ -31,10 +31,9 @@ source $ZSH/oh-my-zsh.sh
 # ALIASES
 alias ip="ipconfig getifaddr en0"
 
-alias la='eza -laT --level=2 --group-directories-first'
-alias ls='eza -laT --level=1 --group-directories-first'
-alias l1='eza -lT --level=2 --group-directories-first'
-alias l2='eza -laT --level=3 --group-directories-first'
+alias ls="eza -l --icons --group-directories-first --git"
+alias la="eza -la --icons --group-directories-first --git"
+alias lt="eza --tree --icons"
 
 alias gitl='git log --graph --decorate --abbrev-commit'
 alias gits="git status --show-stash"
