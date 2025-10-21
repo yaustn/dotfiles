@@ -1,0 +1,3 @@
+# Todo
+
+- look into lazygit

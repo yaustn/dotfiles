@@ -28,12 +28,17 @@ bindkey '^[[Z' reverse-menu-complete # Shift+Tab for reverse completion
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 source $ZSH/oh-my-zsh.sh
 
+eval "$(zoxide init zsh)"
+
 # ALIASES
 alias ip="ipconfig getifaddr en0"
 
 alias ls="eza -l --icons --group-directories-first --git"
 alias la="eza -la --icons --group-directories-first --git"
 alias lt="eza --tree --icons"
+
+export FZF_DEFAULT_OPTS="--bind=ctrl-j:down,ctrl-k:up"
+alias zi='cd "$(zoxide query -i)"'
 
 alias gitl='git log --graph --decorate --abbrev-commit'
 alias gits="git status --show-stash"
