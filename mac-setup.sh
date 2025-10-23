@@ -26,6 +26,8 @@ brew install tmux
 brew install nvim
 brew install fzf
 brew install pgcli
+brew install ripgrep
+brew install zoxide
 
 # install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"

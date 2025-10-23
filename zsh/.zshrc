@@ -37,7 +37,6 @@ alias ls="eza -l --icons --group-directories-first --git"
 alias la="eza -la --icons --group-directories-first --git"
 alias lt="eza --tree --icons"
 
-export FZF_DEFAULT_OPTS="--bind=ctrl-j:down,ctrl-k:up"
 alias zi='cd "$(zoxide query -i)"'
 
 alias gitl='git log --graph --decorate --abbrev-commit'
@@ -65,3 +64,12 @@ export NVM_DIR="$HOME/.nvm"
 
 # Cursor-Agent
 export PATH="$HOME/.local/bin:$PATH"
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs -g "!*.git/*"'
+export FZF_DEFAULT_OPTS="--bind=ctrl-j:down,ctrl-k:up"
+if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
+  PATH="${PATH:+${PATH}:}/opt/homebrew/opt/fzf/bin"
+fi
+source <(fzf --zsh)
+
