@@ -3,7 +3,7 @@ vim.g.localleader = " "
 -- timeout in ms for key sequences
 vim.opt.timeoutlen = 500
 
-vim.keymap.set("i", ";;", "<Esc>", { desc = "Escape insert mode" })
+vim.keymap.set({"i", "v"}, ";;", "<Esc>", { desc = "Escape insert mode" })
 
 vim.keymap.set("n", "<leader>t", function()
   local nvim_tree = require("nvim-tree.api")
