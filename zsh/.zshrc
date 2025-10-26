@@ -73,3 +73,37 @@ if [[ ! "$PATH" == */opt/homebrew/opt/fzf/bin* ]]; then
 fi
 source <(fzf --zsh)
 
+tmux-sessionizer() {
+  local dir
+  dir=$(find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --height 40% --reverse)
+  if [[ -n "$dir" ]]; then
+    local session_name=$(basename "$dir")
+    
+    # Print the command to execute
+    BUFFER="tmux-session-switch '$session_name' '$dir'"
+    zle accept-line
+  fi
+}
+zle -N tmux-sessionizer
+bindkey '^o' tmux-sessionizer
+
+# Helper function to switch/create tmux session
+tmux-session-switch() {
+  local session_name=$1
+  local dir=$2
+  
+  if [[ -z "$TMUX" ]]; then
+    # Not in tmux
+    if tmux has-session -t "$session_name" 2>/dev/null; then
+      tmux attach-session -t "$session_name"
+    else
+      tmux new-session -s "$session_name" -c "$dir"
+    fi
+  else
+    # Already in tmux
+    if ! tmux has-session -t "$session_name" 2>/dev/null; then
+      tmux new-session -d -s "$session_name" -c "$dir"
+    fi
+    tmux switch-client -t "$session_name"
+  fi
+}
