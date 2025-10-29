@@ -3,10 +3,10 @@ return {
   build = ":TSUpdate",
   lazy = false,
   opts = {
-    ensure_installed = { 
-        "lua", 
-        "vim", 
-        "go", 
+    ensure_installed = {
+        "lua",
+        "vim",
+        "go",
         "python",
         "json",
         "javascript",
