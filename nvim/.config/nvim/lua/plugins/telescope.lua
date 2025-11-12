@@ -72,7 +72,20 @@ return {
 
 			-- See `:help telescope.builtin`
 			local builtin = require("telescope.builtin")
-			vim.keymap.set("n", "<leader>o", builtin.find_files, { desc = "Telescope [O]pen File" })
+			vim.keymap.set(
+				"n",
+				"<leader>o",
+				"<cmd>lua require'telescope.builtin'.find_files({ find_command = {'rg', '--files', '--hidden', '-g', '!.git' }})<cr>",
+				{ desc = "[O]pen Files" }
+			)
+
+			vim.keymap.set(
+				"n",
+				"<leader><S-f>",
+				"<cmd>lua require'telescope.builtin'.live_grep({ additional_args = {'--hidden', '--fixed-strings'} })<cr>",
+				{ desc = "[F]ind" }
+			)
+			vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "[S]earch [B]uffers" })
 
 			-- Kickstart default keybinds
 			vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
@@ -84,7 +97,7 @@ return {
 			vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 			vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
 			vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+			vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Buffers" })
 
 			-- Slightly advanced example of overriding default behavior and theme
 			vim.keymap.set("n", "<leader>/", function()

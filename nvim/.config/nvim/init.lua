@@ -4,10 +4,6 @@
     which is very useful when you're not exactly sure of what you're looking for.
 --]]
 
-require("config.options")
-require("config.keymaps")
-require("config.autocmds")
-
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
@@ -64,3 +60,7 @@ require("lazy").setup({
 		},
 	},
 })
+
+require("config.options")
+require("config.keymaps")
+require("config.autocmds")
