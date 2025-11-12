@@ -50,3 +50,55 @@ vim.keymap.set("n", "<leader>sb", "<cmd>Telescope buffers<cr>", { desc = "Telesc
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
+
+--[[
+vim.keymap.set("n", "<leader>t", function()
+	local nvim_tree = require("nvim-tree.api")
+	local view = require("nvim-tree.view")
+
+	if view.is_visible() then
+		-- If tree is visible, check if we're in it
+		if vim.bo.filetype == "NvimTree" then
+			-- We're in the tree, toggle it off
+			nvim_tree.tree.toggle()
+		else
+			-- Tree is open but we're not in it, focus it
+			nvim_tree.tree.focus()
+		end
+	else
+		-- Tree is closed, open it
+		nvim_tree.tree.toggle()
+	end
+end, { desc = "Toggle/Focus nvim-tree" })
+
+-- Undotree
+vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>")
+
+-- LSP
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local opts = { buffer = args.buf }
+		-- Navigation
+		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Go to definition
+		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Go to declaration
+		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
+		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts) -- Go to type definition
+		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- Find references
+
+		-- Documentation
+		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- Hover documentation
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Signature help
+
+		-- Actions
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
+		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
+		vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts) -- Format code
+
+		-- Diagnostics
+		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- Previous diagnostic
+		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- Next diagnostic
+		vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts) -- Show diagnostic
+		vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- Diagnostic list
+	end,
+})
+]]
