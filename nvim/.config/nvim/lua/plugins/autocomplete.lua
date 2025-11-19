@@ -46,8 +46,6 @@ return {
 				-- For an understanding of why the 'default' preset is recommended,
 				-- you will need to read `:help ins-completion`
 				--
-				-- No, but seriously. Please read `:help ins-completion`, it is really good!
-				--
 				-- All presets have the following mappings:
 				-- <tab>/<s-tab>: move to right/left of your snippet expansion
 				-- <c-space>: Open menu or open docs if already open
@@ -62,12 +60,7 @@ return {
 				--    https://github.com/L3MON4D3/LuaSnip?tab=readme-ov-file#keymaps
 			},
 
-			appearance = {
-				-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
-				-- Adjusts spacing to ensure icons are aligned
-				nerd_font_variant = "mono",
-			},
-
+			appearance = { nerd_font_variant = "mono" },
 			completion = {
 				-- By default, you may press `<c-space>` to show the documentation.
 				-- Optionally, set `auto_show = true` to show the documentation after a delay.
