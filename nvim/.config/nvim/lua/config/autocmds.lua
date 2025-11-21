@@ -11,6 +11,14 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+-- Autosave when switching buffers
+vim.api.nvim_create_autocmd("BufLeave", {
+	group = vim.api.nvim_create_augroup("autosave_on_switch", { clear = true }),
+	callback = function()
+		vim.cmd("silent! update")
+	end,
+})
+
 --[[
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()

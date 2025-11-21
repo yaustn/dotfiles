@@ -25,24 +25,8 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 -- Diagnostic keymaps
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 
-vim.keymap.set("n", "<leader>e", function()
-	local nvim_tree = require("nvim-tree.api")
-	local view = require("nvim-tree.view")
-
-	if view.is_visible() then
-		-- If tree is visible, check if we're in it
-		if vim.bo.filetype == "NvimTree" then
-			-- We're in the tree, toggle it off
-			nvim_tree.tree.toggle()
-		else
-			-- Tree is open but we're not in it, focus it
-			nvim_tree.tree.focus()
-		end
-	else
-		-- Tree is closed, open it
-		nvim_tree.tree.toggle()
-	end
-end, { desc = "Toggle File [E]xplorer" })
+-- File Explorer
+vim.keymap.set("n", "<leader>e", "<CMD>Oil<CR>", { desc = "File [E]xplorer" })
 
 -- Undotree
 vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [U]ndoTree" })
@@ -87,3 +71,42 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 ]]
+
+-- Harpoon
+local harpoon = require("harpoon")
+
+-- REQUIRED
+harpoon:setup()
+-- REQUIRED
+
+vim.keymap.set("n", "<leader>a", function()
+	harpoon:list():add()
+end, { desc = "Harpoon [A]dd" })
+
+vim.keymap.set("n", "<leader><space>", function()
+	harpoon.ui:toggle_quick_menu(harpoon:list())
+end, { desc = "Show Harpoon List" })
+
+vim.keymap.set("n", "<leader>1", function()
+	harpoon:list():select(1)
+end, { desc = "Harpoon [1]/2/3/4/5" })
+vim.keymap.set("n", "<leader>2", function()
+	harpoon:list():select(2)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>3", function()
+	harpoon:list():select(3)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>4", function()
+	harpoon:list():select(4)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>5", function()
+	harpoon:list():select(5)
+end, { desc = "which_key_ignore" })
+
+-- Toggle previous & next buffers stored within Harpoon list
+vim.keymap.set("n", "<C-S-P>", function()
+	harpoon:list():prev()
+end)
+vim.keymap.set("n", "<C-S-N>", function()
+	harpoon:list():next()
+end)
