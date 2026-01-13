@@ -16,6 +16,8 @@ return {
 				"c",
 				"diff",
 				"html",
+				"scss",
+				"css",
 				"lua",
 				"luadoc",
 				"markdown",

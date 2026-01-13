@@ -224,6 +224,9 @@ return {
 				pyright = {},
 				-- rust_analyzer = {},
 				ts_ls = {},
+				-- frontend
+				html = {},
+				cssls = {},
 
 				lua_ls = {
 					-- cmd = { ... },
