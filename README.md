@@ -16,5 +16,6 @@ stow -v -t ~ nvim
 stow -v -t ~ zsh
 stow -v -t ~ git
 stow -v -t ~ cursor
+stow -v -t ~ claude
 stow -v -t ~ tmux
 ```
