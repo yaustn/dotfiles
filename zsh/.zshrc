@@ -16,9 +16,10 @@ plugins=(
   git
   zsh-completions
   zsh-autosuggestions
-  zsh-syntax-highlighting
+  #zsh-syntax-highlighting
   zsh-history-substring-search
 )
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Keybindings for navigation in autocomplete
 bindkey '^P' up-line-or-search      # Ctrl+P for reverse search
@@ -47,15 +48,14 @@ alias gitp="git push"
 alias wgup='sudo wg-quick up wg0'
 alias wgdown='sudo wg-quick down wg0'
 
+export PATH="$PATH:/opt/nvim/"
 alias vim="nvim"
 alias vi='nvim'
 alias vim-config='vim ~/.config/nvim/init.vim'
 export EDITOR='nvim'
 
-alias llama-server-mistral='llama-server -hf MatiasMunk/Mistral-7B-Instruct-v0.3-Q4_K_M-GGUF'
-
 # Golang
-export PATH=$PATH:$(go env GOPATH)/bin
+export PATH=$PATH:/usr/local/go/bin
 
 # Node
 export NVM_DIR="$HOME/.nvm"
@@ -107,3 +107,5 @@ tmux-session-switch() {
     tmux switch-client -t "$session_name"
   fi
 }
+
+
