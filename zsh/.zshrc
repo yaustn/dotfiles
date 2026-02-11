@@ -75,7 +75,8 @@ source <(fzf --zsh)
 
 tmux-sessionizer() {
   local dir
-  dir=$(find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --height 40% --reverse)
+  dir=$({ find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null; find ~/obsidian -mindepth 1 -maxdepth 1 -type d 2>/dev/null; } | fzf --height 40% --reverse)
+  #dir=$(find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --height 40% --reverse)
   if [[ -n "$dir" ]]; then
     local session_name=$(basename "$dir")
     
@@ -108,4 +109,22 @@ tmux-session-switch() {
   fi
 }
 
+# startup on notebook dir
+tmux-startup() {
+    if [ -n "$TMUX" ]; then
+        echo "Already inside a tmux session"
+        return 1
+    fi
 
+    local session_name='notebook'
+    tmux has-session -t "$session_name" 2>/dev/null
+
+    if [ $? != 0 ]; then
+        tmux new-session -s "$session_name" -c /Users/ayoo/obsidian/notebook
+    else
+        tmux attach-session -t "$session_name"
+    fi
+}
+if [ -z "$TMUX" ]; then
+    tmux-startup
+fi

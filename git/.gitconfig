@@ -35,6 +35,6 @@
 	ca = commit --amend
 [pager]
 	branch = false
-    diff = false
+    diff = true
 [init]
 	defaultBranch = main
