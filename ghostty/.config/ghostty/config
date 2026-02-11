@@ -1,0 +1,15 @@
+# Run `ghostty +show-config --default --docs` to view a list of
+# all available config options and their default values.
+# hello
+
+shell-integration=zsh
+theme=Catppuccin Mocha
+
+#fullscreen=ctrl+enter
+window-height=35
+window-width=140
+
+font-size=14
+font-thicken=true
+
+background-opacity=0.95
