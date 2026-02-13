@@ -48,7 +48,7 @@ return {
 				{ "<leader>s", group = "[S]earch" },
 				{ "<leader>t", group = "[T]oggle" },
 				{ "<leader>h", group = "Git [H]unk", mode = { "n", "v" } },
-				{ "g", group = "[G]oto" },
+				{ "g", group = "[g]oto" },
 			},
 		},
 	},

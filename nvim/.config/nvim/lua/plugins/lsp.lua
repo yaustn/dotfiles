@@ -65,10 +65,10 @@ return {
 						vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = "LSP: " .. desc })
 					end
 
-					map("gd", vim.lsp.buf.definition, "[g]oto [d]efinition")
+					map("gd", require("telescope.builtin").lsp_definitions, "[g]oto [d]efinition")
 					map("gD", vim.lsp.buf.declaration, "[g]oto [D]eclaration")
-					map("gi", vim.lsp.buf.implementation, "[g]oto [i]mplementation")
-					map("gr", vim.lsp.buf.references, "[g]oto [R]eferences")
+					map("gi", require("telescope.builtin").lsp_implementations, "[g]oto [i]mplementation")
+					map("gR", require("telescope.builtin").lsp_references, "[g]oto [R]eferences")
 
 					-- Rename the variable under your cursor.
 					map("grn", vim.lsp.buf.rename, "[r]e[n]ame")

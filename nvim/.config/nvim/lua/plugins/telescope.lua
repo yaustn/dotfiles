@@ -48,7 +48,7 @@ return {
 					path_display = { "truncate" },
 					file_ignore_patterns = {
 						"node_modules",
-						".git",
+						"%.git",
 						".venv",
 						"__pycache__",
 						"%.o",
