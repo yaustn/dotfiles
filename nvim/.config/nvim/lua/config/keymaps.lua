@@ -5,6 +5,7 @@ vim.keymap.set({ "i", "v" }, ";;", "<Esc>", { desc = "Escape insert mode" })
 -- exit terminal mode
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
+-- tab behavior in normal mode
 vim.keymap.set("n", "<Tab>", ">>", { desc = "Indent line right" })
 vim.keymap.set("n", "<S-Tab>", "<<", { desc = "Indent line left" })
 vim.keymap.set("i", "<S-Tab>", "<Esc><<i", { desc = "Indent line left in insert mode" })
@@ -41,36 +42,6 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [U]ndoT
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
 -- vim.keymap.set("n", "<C-S-j>", "<C-w>J", { desc = "Move window to the lower" })
 -- vim.keymap.set("n", "<C-S-k>", "<C-w>K", { desc = "Move window to the upper" })
-
---[[
--- LSP
-vim.api.nvim_create_autocmd("LspAttach", {
-	callback = function(args)
-		local opts = { buffer = args.buf }
-		-- Navigation
-		vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts) -- Go to definition
-		vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts) -- Go to declaration
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Go to implementation
-		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts) -- Go to type definition
-		vim.keymap.set("n", "gr", vim.lsp.buf.references, opts) -- Find references
-
-		-- Documentation
-		vim.keymap.set("n", "K", vim.lsp.buf.hover, opts) -- Hover documentation
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Signature help
-
-		-- Actions
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Rename symbol
-		vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, opts) -- Code actions
-		vim.keymap.set("n", "<leader>f", vim.lsp.buf.format, opts) -- Format code
-
-		-- Diagnostics
-		vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- Previous diagnostic
-		vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts) -- Next diagnostic
-		vim.keymap.set("n", "<leader>e", vim.diagnostic.open_float, opts) -- Show diagnostic
-		vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, opts) -- Diagnostic list
-	end,
-})
-]]
 
 -- Harpoon
 local harpoon = require("harpoon")
