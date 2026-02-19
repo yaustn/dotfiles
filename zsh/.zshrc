@@ -56,7 +56,7 @@ export EDITOR='nvim'
 
 # Golang
 export PATH=$PATH:/usr/local/go/bin
-export PATH=$PATH:~/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 # Node
 export NVM_DIR="$HOME/.nvm"
