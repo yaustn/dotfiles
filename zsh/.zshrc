@@ -16,10 +16,9 @@ plugins=(
   git
   zsh-completions
   zsh-autosuggestions
-  #zsh-syntax-highlighting
+  zsh-syntax-highlighting
   zsh-history-substring-search
 )
-source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Keybindings for navigation in autocomplete
 bindkey '^P' up-line-or-search      # Ctrl+P for reverse search
