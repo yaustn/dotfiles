@@ -75,7 +75,7 @@ source <(fzf --zsh)
 
 tmux-sessionizer() {
   local dir
-  dir=$({ find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null; find ~/obsidian -mindepth 1 -maxdepth 1 -type d 2>/dev/null; } | fzf --height 40% --reverse)
+  dir=$({ find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null; find ~/obsidian -mindepth 1 -maxdepth 1 -type d -not -name '.stfolder' 2>/dev/null; } | fzf --height 40% --reverse)
   #dir=$(find ~/github.com -mindepth 1 -maxdepth 1 -type d 2>/dev/null | fzf --height 40% --reverse)
   if [[ -n "$dir" ]]; then
     local session_name=$(basename "$dir")
@@ -128,3 +128,6 @@ tmux-startup() {
 if [ -z "$TMUX" ]; then
     tmux-startup
 fi
+
+# opencode
+export PATH=/home/ayoo/.opencode/bin:$PATH
