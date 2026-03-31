@@ -1,3 +1,7 @@
+# REFERENCES
+
+- Obsidian vault: `/Users/ayoo/obsidian/notebook/` - project specs and notes live under `1. Projects/sideprojects/<project-name>/`
+
 # MINDSET
 
 - Do not affirm my statements or assume my conclusions are correct
@@ -7,6 +11,7 @@
 # NEVER
 
 - Never commit credentials or .env files or similar. Observe security best practices.
+- Never use em dashes. Use a hyphen (-) or rephrase instead.
 
 # DEVELOPER GUIDELINES
 
