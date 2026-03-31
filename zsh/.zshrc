@@ -129,9 +129,4 @@ if [ -z "$TMUX" ]; then
     tmux-startup
 fi
 
-# opencode
-<<<<<<< HEAD
 export PATH=/home/ayoo/.opencode/bin:$PATH
-=======
-export PATH=/Users/ayoo/.opencode/bin:$PATH
->>>>>>> cf61242 (ssh and other config)
