@@ -130,3 +130,4 @@ if [ -z "$TMUX" ]; then
 fi
 
 export PATH=/home/ayoo/.opencode/bin:$PATH
+export PATH=/Users/ayoo/.opencode/bin:$PATH
