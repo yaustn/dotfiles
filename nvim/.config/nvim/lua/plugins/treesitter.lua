@@ -11,6 +11,7 @@ return {
 				"json",
 				"javascript",
 				"typescript",
+				"svelte",
 				"c",
 				"diff",
 				"html",
