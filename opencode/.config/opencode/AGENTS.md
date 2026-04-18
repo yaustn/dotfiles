@@ -5,8 +5,7 @@
 Use these files within the working directory for relevant state. Create them if they don't exist on first write. Review
 these files whenever tasks are started and whenever tasks are completed. These are living, breathing documents.
 
-- "TODO.md": For continuity. When a task is completed add documentation about the progress made on that task here. If
-  there are follow-ups from that task, add that here as well
+- "TODO.md": For continuity. Write at the repo level. When a task is completed add documentation about the progress made on that task here. If there are follow-ups from that task, add that here as well
 
 Update `TODO.md` only when there is a meaningful delta in:
   - `[PLANS]`: A guide for the next contributor as much as checklists for you
@@ -14,7 +13,7 @@ Update `TODO.md` only when there is a meaningful delta in:
   - `[PROGRESS]`: Used to record course changes mid-implementation, documenting why and reflecting upon the implications.
   - `[OUTCOMES]`: Used at completion of a major task or the full plan, summarizing what was achieved, what remains, and lessons learned.
 
-- "LESSONS.md": For self-improvement. When mistakes are made, add learnings to prevent the same mistake here
+- "LESSONS.md": For self-improvement. Write at the global level. When mistakes are made, add learnings to prevent the same mistake here
 
 Make sure to read through all Meta Files at the start of each new session.
 
@@ -22,7 +21,7 @@ Make sure to read through all Meta Files at the start of each new session.
 
 - Facts only, no transcripts, no raw logs
 - Every entry must include:
-  - a date in ISO timestamp (e.g., `2026-01-13 T 09:42 Z`)
+  - a date in `YYYY-MM-DD` format (e.g., `[2026-01-13]`)
   - If unknown, write `UNCONFIRMED` (never guess). If something changes, supersede it explicitly (don't silently rewrite history).
 - Keep the file bounded, short and high-signal (anti-bloat).
 - If sections begin to become bloated, compress older items into milestone (`[MILESTONE]`) bullets
@@ -123,4 +122,3 @@ When a request depends on recency (e.g., "latest", "current", "today", "as of no
 - Preserve existing style and conventions.
 - Prefer patch-style edits (small, reviewable diffs) over full-file rewrites.
 - After making changes, run the project’s standard checks when feasible (format/lint, unit tests, build/typecheck).
-
