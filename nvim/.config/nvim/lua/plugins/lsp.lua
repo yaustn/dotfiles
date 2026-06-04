@@ -204,6 +204,7 @@ return {
 				-- frontend
 				html = {},
 				cssls = {},
+				svelte = {},
 
 				lua_ls = {
 					-- cmd = { ... },

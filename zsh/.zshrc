@@ -39,10 +39,10 @@ alias lt="eza --tree --icons"
 
 alias zi='cd "$(zoxide query -i)"'
 
-alias gitl='git log --graph --decorate --abbrev-commit'
-alias gits="git status --show-stash"
-alias gita="git add ."
-alias gitp="git push"
+alias gl='git log --graph --decorate --abbrev-commit'
+alias gs="git status --show-stash"
+alias ga="git add ."
+alias gp="git push"
 
 alias wgup='sudo wg-quick up wg0'
 alias wgdown='sudo wg-quick down wg0'
