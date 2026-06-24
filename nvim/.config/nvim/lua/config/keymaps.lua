@@ -74,6 +74,8 @@ vim.keymap.set("n", "<leader>5", function()
 	harpoon:list():select(5)
 end, { desc = "which_key_ignore" })
 vim.keymap.set("n", "<leader>6", "<C-^>", { desc = "which_key_ignore" })
+vim.keymap.set("n", "gb", "<C-^>", { desc = "Go to previous buffer" })
+vim.keymap.set("n", "gf", "<C-i>", { desc = "Go forward in jumplist" })
 
 -- Toggle previous & next buffers stored within Harpoon list
 vim.keymap.set("n", "<C-S-P>", function()

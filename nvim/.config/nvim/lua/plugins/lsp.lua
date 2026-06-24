@@ -200,7 +200,22 @@ return {
 				gopls = {},
 				pyright = {},
 				-- rust_analyzer = {},
-				ts_ls = {},
+				ts_ls = {
+				settings = {
+					typescript = {
+						format = {
+							tabSize = 2,
+							indentSize = 2,
+						},
+					},
+					javascript = {
+						format = {
+							tabSize = 2,
+							indentSize = 2,
+						},
+					},
+				},
+			},
 				-- frontend
 				html = {},
 				cssls = {},

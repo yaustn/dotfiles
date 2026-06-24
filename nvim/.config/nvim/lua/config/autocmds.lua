@@ -19,6 +19,16 @@ vim.api.nvim_create_autocmd("BufLeave", {
 	end,
 })
 
+-- 2-space tabs for TypeScript/JavaScript/HTML/CSS
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = { "typescript", "typescriptreact", "javascript", "javascriptreact", "html", "css", "json", "yaml" },
+	group = vim.api.nvim_create_augroup("set_2space_tabs", { clear = true }),
+	callback = function()
+		vim.bo.tabstop = 2
+		vim.bo.shiftwidth = 2
+	end,
+})
+
 --[[
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
