@@ -26,6 +26,9 @@ return {
 				"query",
 				"vim",
 				"vimdoc",
+				"gdscript",
+				"godot_resource",
+				"gdshader",
 			})
 
 			vim.api.nvim_create_autocmd("FileType", {

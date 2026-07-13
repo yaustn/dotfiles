@@ -221,6 +221,9 @@ return {
 				cssls = {},
 				svelte = {},
 
+				-- godot (server runs inside the Godot editor on port 6005)
+				gdscript = {},
+
 				lua_ls = {
 					-- cmd = { ... },
 					-- filetypes = { ... },
@@ -250,11 +253,26 @@ return {
 			--
 			-- You can add other tools here that you want Mason to install
 			-- for you, so that they are available from within Neovim.
-			local ensure_installed = vim.tbl_keys(servers or {})
+			-- gdscript ships with the Godot editor, not Mason
+			local mason_skip = { gdscript = true }
+			local ensure_installed = {}
+			for name in pairs(servers) do
+				if not mason_skip[name] then
+					table.insert(ensure_installed, name)
+				end
+			end
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
+
+			-- Set up non-Mason servers directly (nvim 0.11+ API)
+			for name in pairs(mason_skip) do
+				local server = servers[name] or {}
+				server.capabilities = vim.tbl_deep_extend("force", {}, capabilities, server.capabilities or {})
+				vim.lsp.config(name, server)
+				vim.lsp.enable(name)
+			end
 
 			require("mason-lspconfig").setup({
 				ensure_installed = {}, -- explicitly set to an empty table (Kickstart populates installs via mason-tool-installer)
