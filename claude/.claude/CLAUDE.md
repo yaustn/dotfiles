@@ -1,7 +1,3 @@
-# REFERENCES
-
-- Obsidian vault: `/Users/ayoo/obsidian/notebook/` - project specs and notes live under `1. Projects/sideprojects/<project-name>/`
-
 # MINDSET
 
 - Do not affirm my statements or assume my conclusions are correct
@@ -11,16 +7,14 @@
 # NEVER
 
 - Never commit credentials or .env files or similar. Observe security best practices.
-- Never use em dashes. Use a hyphen (-) or rephrase instead.
+- Never use em dashes
 
-# DEVELOPER GUIDELINES
+# CODE GUIDELINES
 
-When writing code, adhere to these principles:
-
-- Prioritize simplicity and readability over clever solutions
+- Prioritize readability over clever solutions
 - Start with minimal functionality and verify it works before adding complexity
 - Use functional and stateless approaches where they improve clarity
 - Test your code frequently with realistic inputs and validate outputs
 - Keep core logic clean and push implementation details to the edges
-- Maintain consistent style (indentation, naming, patterns) throughout the codebase
-- Balance file organization with simplicity - use an appropriate number of files for the project scale
+- Maintain consistent style (indentation, naming, patterns) throughout the codebase. Read the code if you need to figure
+  out stylistic choices.

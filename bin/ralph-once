@@ -1,0 +1,20 @@
+#!/bin/bash
+
+if [[ -z "${1:-}" ]]; then
+  echo "usage: $0 <path/to/PROMPT.md>" >&2
+  exit 1
+fi
+ 
+# IMPORTANT: in your @PROMPT.md, make sure to:
+# 1. point to your specs/PRD, and where the source code lives
+# 2. guide the agent to choose ONE next task to work on
+# 3. commit changes and update @IMPLEMENTATION_PLAN.md
+# 4. output completion string on task completion
+PROMPT_FILE="$1"
+ 
+if [[ ! -f "$PROMPT_FILE" ]]; then
+  echo "[ERROR]: file not found: $PROMPT_FILE" >&2
+  exit 1
+fi
+
+claude --permission-mode acceptEdits "@${PROMPT_FILE}"

@@ -20,4 +20,5 @@ stow -v -t ~ claude
 stow -v -t ~ tmux
 stow -v -t ~ ghostty
 stow -v -t ~ opencode
+stow -v -t /usr/local/bin bin
 ```
