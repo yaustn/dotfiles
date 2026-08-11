@@ -17,4 +17,4 @@ if [[ ! -f "$PROMPT_FILE" ]]; then
   exit 1
 fi
 
-claude --permission-mode acceptEdits "@${PROMPT_FILE}"
+claude -p --permission-mode auto "@${PROMPT_FILE}"

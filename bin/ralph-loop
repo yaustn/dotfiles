@@ -1,0 +1,36 @@
+#!/bin/bash
+set -euo pipefail
+
+usage() {
+  echo "Usage: $0 <path/to/PROMPT.md> [-n <iterations>]"
+  exit 1
+}
+
+n=10  # default
+
+while getopts ":n:" opt; do
+  case "$opt" in
+    n) n="$OPTARG" ;;
+    *) usage ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+prompt="${1:-}"
+if [ -z "$prompt" ]; then
+  usage
+fi
+
+for ((i = 1; i <= n; i++)); do
+  echo "starting ralph iteration $i"
+  result="$(ralph-once "$prompt")"
+  echo "$result"
+
+  if [[ "$result" == *"<ralph>COMPLETE</ralph>"* ]]; then
+    echo "Got COMPLETE message after $i iterations."
+    exit 0
+  fi
+done
+
+echo "Reached max iterations ($n)"
+exit 0
