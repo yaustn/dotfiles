@@ -2,11 +2,11 @@
 set -euo pipefail
 
 usage() {
-  echo "Usage: $0 <path/to/PROMPT.md> [-n <iterations>]"
+  echo "Usage: $0 [-n iterations] <path/to/PROMPT.md>"
   exit 1
 }
 
-n=10  # default
+n=1  # default
 
 while getopts ":n:" opt; do
   case "$opt" in
