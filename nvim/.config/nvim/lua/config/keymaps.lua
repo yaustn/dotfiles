@@ -46,10 +46,6 @@ vim.keymap.set("n", "<leader>u", ":UndotreeToggle<CR>", { desc = "Toggle [U]ndoT
 -- Harpoon
 local harpoon = require("harpoon")
 
--- REQUIRED
-harpoon:setup()
--- REQUIRED
-
 vim.keymap.set("n", "<leader>a", function()
 	harpoon:list():add()
 end, { desc = "Harpoon [A]dd" })
@@ -73,7 +69,19 @@ end, { desc = "which_key_ignore" })
 vim.keymap.set("n", "<leader>5", function()
 	harpoon:list():select(5)
 end, { desc = "which_key_ignore" })
-vim.keymap.set("n", "<leader>6", "<C-^>", { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>6", function()
+	harpoon:list():select(6)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>7", function()
+	harpoon:list():select(7)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>8", function()
+	harpoon:list():select(8)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>9", function()
+	harpoon:list():select(9)
+end, { desc = "which_key_ignore" })
+vim.keymap.set("n", "<leader>`", "<C-^>", { desc = "Go to alternate buffer" })
 vim.keymap.set("n", "gb", "<C-^>", { desc = "Go to previous buffer" })
 vim.keymap.set("n", "gf", "<C-i>", { desc = "Go forward in jumplist" })
 
