@@ -12,6 +12,7 @@ return {
 				"json",
 				"javascript",
 				"typescript",
+				"tsx",
 				"svelte",
 				"c",
 				"diff",
@@ -30,6 +31,8 @@ return {
 				"godot_resource",
 				"gdshader",
 			})
+
+			vim.treesitter.language.register("tsx", "typescriptreact")
 
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function(args)
