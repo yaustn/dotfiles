@@ -43,23 +43,9 @@ return {
 				pcall(vim.cmd.redrawtabline)
 			end)
 
-			local group = vim.api.nvim_create_augroup("HarpoonMirrorsBufferline", { clear = true })
+			local max_slots = 9
 
-			vim.api.nvim_create_autocmd("BufEnter", {
-				group = group,
-				callback = function(args)
-					if not is_file_buf(args.buf) then
-						return
-					end
-					local list = harpoon:list()
-					local name = vim.api.nvim_buf_get_name(args.buf)
-					if index_of(list, name) then
-						return
-					end
-					list:add()
-					refresh_bufferline()
-				end,
-			})
+			local group = vim.api.nvim_create_augroup("HarpoonMirrorsBufferline", { clear = true })
 
 			local function compact(list)
 				local compacted = {}
@@ -74,6 +60,26 @@ return {
 				list.items = compacted
 				list._length = n
 			end
+
+			vim.api.nvim_create_autocmd("BufEnter", {
+				group = group,
+				callback = function(args)
+					if not is_file_buf(args.buf) then
+						return
+					end
+					local list = harpoon:list()
+					local name = vim.api.nvim_buf_get_name(args.buf)
+					if index_of(list, name) then
+						return
+					end
+					while list._length >= max_slots do
+						list:remove_at(max_slots)
+						compact(list)
+					end
+					list:add()
+					refresh_bufferline()
+				end,
+			})
 
 			vim.api.nvim_create_autocmd({ "BufDelete", "BufWipeout" }, {
 				group = group,
