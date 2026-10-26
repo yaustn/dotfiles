@@ -4,7 +4,7 @@ description: Break a spec into a set of tracer-bullet issues, each declaring its
 disable-model-invocation: true
 ---
 
-Cross reference existing issues at docs/issues with docs/specs and break down specs that have not been converted into as a set of issues. Each issue is a tracer-bullet vertical slice, each declaring the issues that block it. Ultimately we are looking to identify and formalize what we should work on next.
+Cross reference existing issues at docs/issues with docs/specs and break down specs that have not been converted into as a set of issues. Each issue is a tracer-bullet vertical slice, each declaring the issues that block it. Ultimately we are looking to find what we should work on next.
 
 # Process
 
@@ -33,7 +33,7 @@ Break the work into tracer bullet, vertical sliced pieces of work.
 
 Give each ticket its blocking edges: the other issues that must complete before it can start. A ticket with no blockers can start immediately.
 
-**Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change (rename a column, retype a shared symbol) whose **blast radius** fans across the whole codebase, so a single edit breaks thousands of call sites at once and no vertical slice can land green. Don't force it into a tracer bullet; sequence it as **expand–contract**. First expand: add the new form beside the old so nothing breaks. Then migrate the call sites over in batches sized by blast radius (per package, per directory), each batch should have its own issue blocked by the expand. Tests should remain green batch to batch because the old form still exists. Finally contract: delete the old form once no caller remains, in a ticket blocked by every migrate batch. Finally add a integrate-and-verify issue for the last remaining work to clean-up green is promised only there.
+**Wide refactors are the exception to vertical slicing.** A **wide refactor** is one mechanical change (rename a column, retype a shared symbol) whose **blast radius** fans across the whole codebase, so a single edit breaks thousands of call sites at once and no vertical slice can land green. Don't force it into a tracer bullet; sequence it as **expand–contract**. First expand: add the new form beside the old so nothing breaks. Then migrate the call sites over in batches sized by blast radius (per package, per directory), each batch should have its own issue blocked by the expand. Tests should remain green batch to batch because the old form still exists. Finally contract: delete the old form once no caller remains, in a ticket blocked by every migrate batch. Finally add an integrate-and-verify issue for the last remaining work to clean-up - green is promised only there.
 
 ## 4. Confirm with the user
 
@@ -54,7 +54,7 @@ Iterate until the user approves the breakdown.
 ## 5. Write the issues
 
 Publish the approved issues to a docs/issues/* directory. One file per issue, following the numbered order that already
-exists. Respec the number ordering of even archived issues.
+exists. Respect the number ordering of all issues (including archived ones).
 
 Use the following template to write issues:
 

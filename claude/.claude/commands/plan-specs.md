@@ -6,7 +6,7 @@ disable-model-invocation: true
 ---
 
 With a blank context, this skill loads the context with prior specs and the codebase and asks questions about what to
-build next. The result is a set a specs. Specs should be written to docs/specs.
+build next. The result is a set of specs. Specs should be written to docs/specs.
 
 # Process 
 

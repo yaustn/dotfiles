@@ -22,7 +22,7 @@ func (handler *Handler) Create(w http.ResponseWriter, r *http.Request) {
 
 ## Interfaces
 
-Interfaces should be defined where they are used, not where they are implemented.
+Interfaces should be defined where they are used, not where they are implemented. If an interface uses or returns a specific type, that type should not be defined where it is the interface is implemented. Instead seek to decouple the package that implements and defines types with the caller of that interface/user of that type.
 
 ## Avoid Scoped if Statements
 Avoid using scoped if statements like:
